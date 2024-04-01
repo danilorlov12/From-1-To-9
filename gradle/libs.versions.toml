@@ -1,0 +1,65 @@
+[versions]
+android-gradle-plugin = "8.1.0"
+devtools-ksp = "1.8.10-1.0.9"
+kotlin-android = "1.8.0"
+google-services = "4.3.15"
+firebase-crashlytics-plugin = "2.9.7"
+navigation-safe-args = "2.5.3"
+
+ktx = "1.7.0"
+appcompat = "1.5.1"
+constraintlayout = "2.1.4"
+splashscreen = "1.0.1"
+viewmodel = "2.5.1"
+livedata = "2.5.1"
+extensions = "2.2.0"
+room = "2.4.3"
+navigation = "2.5.3"
+firebase-bom = "32.2.0"
+firebase-analytics = "21.6.1"
+firebase-crashlytics = "18.6.3"
+
+junit = "4.13.2"
+androidx-junit = "1.1.4"
+espresso = "3.5.0"
+core-testing = "2.1.0"
+coroutines-test = "1.5.0"
+
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout"}
+androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigation" }
+androidx-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
+
+androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "viewmodel" }
+androidx-lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata", version.ref = "livedata" }
+androidx-lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "extensions" }
+
+navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+navigation-safe-args = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigation-safe-args" }
+
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx", version.ref = "firebase-analytics" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx", version.ref = "firebase-crashlytics" }
+
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit" }
+androidx-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "core-testing" }
+kotlin-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-gradle-plugin"}
+android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
+devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "devtools-ksp"}
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-android" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-plugin" }

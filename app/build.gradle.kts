@@ -8,12 +8,12 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.orlovdanylo.fromonetoninegame"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
 
         val versionMajor = 1
         val versionMinor = 2

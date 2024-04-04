@@ -1,6 +1,4 @@
-package com.orlovdanylo.fromonetoninegame.utils
-
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
+package com.orlovdanylo.fromonetoninegame
 
 class GameController(
     private val gameModels: List<GameModel>

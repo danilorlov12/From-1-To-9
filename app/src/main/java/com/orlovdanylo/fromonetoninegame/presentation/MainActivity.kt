@@ -3,7 +3,7 @@ package com.orlovdanylo.fromonetoninegame.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.orlovdanylo.fromonetoninegame.R
-import com.orlovdanylo.fromonetoninegame.analytics.AnalyticsTracker
+import com.orlovdanylo.fromonetoninegame.AnalyticsTracker
 
 class MainActivity : AppCompatActivity() {
 

@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "FromOneToNineGame"
 include(":app")
+include(":analytics")
+include(":game_manager")

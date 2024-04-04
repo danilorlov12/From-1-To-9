@@ -3,15 +3,15 @@ package com.orlovdanylo.fromonetoninegame.presentation.game
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.orlovdanylo.fromonetoninegame.Repositories
-import com.orlovdanylo.fromonetoninegame.base.BaseViewModel
-import com.orlovdanylo.fromonetoninegame.common.TipController
+import com.orlovdanylo.fromonetoninegame.presentation.core.BaseViewModel
+import com.orlovdanylo.fromonetoninegame.TipController
 import com.orlovdanylo.fromonetoninegame.data.game.GameModelDB
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
+import com.orlovdanylo.fromonetoninegame.GameModel
 import com.orlovdanylo.fromonetoninegame.presentation.game.models.NumberRemoval
 import com.orlovdanylo.fromonetoninegame.presentation.game.undo_redo_operations.IUndoRedoOperation
 import com.orlovdanylo.fromonetoninegame.presentation.game.undo_redo_operations.UndoRedoOperation
-import com.orlovdanylo.fromonetoninegame.utils.GameController
-import com.orlovdanylo.fromonetoninegame.utils.GameMode
+import com.orlovdanylo.fromonetoninegame.GameController
+import com.orlovdanylo.fromonetoninegame.GameMode
 import com.orlovdanylo.fromonetoninegame.utils.calculatePosition
 import kotlinx.coroutines.launch
 
@@ -144,8 +144,7 @@ class GameViewModel : BaseViewModel(), IUndoRedoOperation by UndoRedoOperation()
     }
 
     private fun convertToDisplayableGame(gameDbModel: GameModelDB): MutableList<GameModel> {
-        return gameDbModel.gameDigits.mapIndexed { index, c ->
-            GameModel.fromMapIndexed(index, c.toString())
+        return gameDbModel.gameDigits.mapIndexed { index, c -> GameModel.fromMapIndexed(index, c.toString())
         }.toMutableList()
     }
 

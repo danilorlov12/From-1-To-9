@@ -1,7 +1,6 @@
 package com.orlovdanylo.fromonetoninegame
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
 import com.orlovdanylo.fromonetoninegame.presentation.game.GameViewModel
 import junit.framework.Assert.assertEquals
 import org.junit.Before
@@ -22,9 +21,8 @@ class MainViewModelUnitTest {
     fun before() {
         viewModel = GameViewModel()
 
-        startModels = GameUtils.game.mapIndexed { index, s ->
-            GameModel(index, s.toInt(), false)
-        }
+        startModels = GameMode.Classic().convertToGameModelsList()
+
         viewModel.initGame(true)
     }
 

@@ -1,4 +1,4 @@
-package com.orlovdanylo.fromonetoninegame.presentation.game.models
+package com.orlovdanylo.fromonetoninegame
 
 data class GameModel(
     val id: Int,

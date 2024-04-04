@@ -1,6 +1,6 @@
 package com.orlovdanylo.fromonetoninegame.tip
 
-import com.orlovdanylo.fromonetoninegame.common.TipController
+import com.orlovdanylo.fromonetoninegame.TipController
 import junit.framework.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

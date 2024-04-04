@@ -7,9 +7,9 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.activityViewModels
 import com.orlovdanylo.fromonetoninegame.R
-import com.orlovdanylo.fromonetoninegame.analytics.AnalyticsButton
-import com.orlovdanylo.fromonetoninegame.analytics.logEventClickListener
-import com.orlovdanylo.fromonetoninegame.base.BaseFragment
+import com.orlovdanylo.fromonetoninegame.ButtonActions
+import com.orlovdanylo.fromonetoninegame.utils.logEventClickListener
+import com.orlovdanylo.fromonetoninegame.presentation.core.BaseFragment
 import com.orlovdanylo.fromonetoninegame.utils.getPackageInfoCompat
 
 class MenuFragment : BaseFragment<MenuViewModel>() {
@@ -23,7 +23,7 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
         viewModel.checkStoredGame()
 
         view.findViewById<AppCompatButton>(R.id.btnContinue).apply {
-            logEventClickListener(requireActivity(), AnalyticsButton.CONTINUE) {
+            logEventClickListener(requireActivity(), ButtonActions.CONTINUE) {
                 val action = MenuFragmentDirections.actionMenuFragmentToGameFragment(false)
                 navController.navigate(action)
             }
@@ -33,19 +33,19 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
         }
 
         view.findViewById<AppCompatButton>(R.id.btnNewGame)
-            .logEventClickListener(requireActivity(), AnalyticsButton.NEW_GAME) {
+            .logEventClickListener(requireActivity(), ButtonActions.NEW_GAME) {
                 val action = MenuFragmentDirections.actionMenuFragmentToGameFragment(true)
                 navController.navigate(action)
             }
 
         view.findViewById<AppCompatImageButton>(R.id.btnInfo)
-            .logEventClickListener(requireActivity(), AnalyticsButton.INFO) {
+            .logEventClickListener(requireActivity(), ButtonActions.INFO) {
                 val action = MenuFragmentDirections.actionMenuFragmentToInfoFragment()
                 navController.navigate(action)
             }
 
         view.findViewById<AppCompatButton>(R.id.btnStatistics)
-            .logEventClickListener(requireActivity(), AnalyticsButton.STATISTICS) {
+            .logEventClickListener(requireActivity(), ButtonActions.STATISTICS) {
                 val action = MenuFragmentDirections.actionMenuFragmentToStatisticsFragment()
                 navController.navigate(action)
             }

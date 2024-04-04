@@ -41,7 +41,7 @@
         tools:listitem="@layout/item_game_model"
         tools:spanCount="9" />
 
-    <com.orlovdanylo.fromonetoninegame.presentation.game.GameBottomMenuView
+    <com.orlovdanylo.fromonetoninegame.presentation.game.bottom_view.GameBottomMenuView
         android:id="@+id/gameBottomMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -2,7 +2,7 @@ package com.orlovdanylo.fromonetoninegame.presentation.info_game
 
 import androidx.lifecycle.MutableLiveData
 import com.orlovdanylo.fromonetoninegame.Repositories
-import com.orlovdanylo.fromonetoninegame.base.BaseViewModel
+import com.orlovdanylo.fromonetoninegame.presentation.core.BaseViewModel
 import com.orlovdanylo.fromonetoninegame.data.info_pages.InfoPage
 
 class InfoGameViewModel : BaseViewModel() {

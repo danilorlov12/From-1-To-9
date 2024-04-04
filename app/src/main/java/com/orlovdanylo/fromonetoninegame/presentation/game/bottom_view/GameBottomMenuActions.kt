@@ -1,4 +1,4 @@
-package com.orlovdanylo.fromonetoninegame.presentation.game
+package com.orlovdanylo.fromonetoninegame.presentation.game.bottom_view
 
 interface GameBottomMenuActions {
     fun undo()

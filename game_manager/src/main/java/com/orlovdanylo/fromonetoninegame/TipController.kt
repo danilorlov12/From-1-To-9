@@ -1,7 +1,4 @@
-package com.orlovdanylo.fromonetoninegame.common
-
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
-import com.orlovdanylo.fromonetoninegame.utils.GameController
+package com.orlovdanylo.fromonetoninegame
 
 class TipController(
     private val models: List<GameModel>

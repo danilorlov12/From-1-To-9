@@ -8,12 +8,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.orlovdanylo.fromonetoninegame.R
-import com.orlovdanylo.fromonetoninegame.base.BaseFragment
+import com.orlovdanylo.fromonetoninegame.presentation.core.BaseFragment
 import com.orlovdanylo.fromonetoninegame.domain.model.TimeModel
 import com.orlovdanylo.fromonetoninegame.presentation.alert_dialog.CustomAlertDialog
 import com.orlovdanylo.fromonetoninegame.presentation.core.ClickListener
 import com.orlovdanylo.fromonetoninegame.presentation.game.adapter.GameAdapter
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
+import com.orlovdanylo.fromonetoninegame.GameModel
+import com.orlovdanylo.fromonetoninegame.presentation.game.bottom_view.GameBottomMenuActions
+import com.orlovdanylo.fromonetoninegame.presentation.game.bottom_view.GameBottomMenuView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancelChildren

@@ -1,7 +1,7 @@
 package com.orlovdanylo.fromonetoninegame.presentation.game.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
+import com.orlovdanylo.fromonetoninegame.GameModel
 
 object GameDiffCallback : DiffUtil.ItemCallback<GameModel>() {
 

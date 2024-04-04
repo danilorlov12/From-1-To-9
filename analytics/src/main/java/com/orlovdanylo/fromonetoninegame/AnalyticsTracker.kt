@@ -1,4 +1,4 @@
-package com.orlovdanylo.fromonetoninegame.analytics
+package com.orlovdanylo.fromonetoninegame
 
 import android.content.Context
 import android.os.Bundle

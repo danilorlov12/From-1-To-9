@@ -1,12 +1,12 @@
-package com.orlovdanylo.fromonetoninegame.presentation.game
+package com.orlovdanylo.fromonetoninegame.presentation.game.bottom_view
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.orlovdanylo.fromonetoninegame.R
-import com.orlovdanylo.fromonetoninegame.analytics.AnalyticsButton
-import com.orlovdanylo.fromonetoninegame.analytics.logEventClickListener
+import com.orlovdanylo.fromonetoninegame.ButtonActions
+import com.orlovdanylo.fromonetoninegame.utils.logEventClickListener
 
 class GameBottomMenuView : ConstraintLayout {
 
@@ -32,19 +32,19 @@ class GameBottomMenuView : ConstraintLayout {
 
         btnAddDigits.isEnabled = false
 
-        btnUndo.logEventClickListener(context, AnalyticsButton.UNDO) {
+        btnUndo.logEventClickListener(context, ButtonActions.UNDO) {
             actions?.undo()
         }
 
-        btnRedo.logEventClickListener(context, AnalyticsButton.REDO) {
+        btnRedo.logEventClickListener(context, ButtonActions.REDO) {
             actions?.redo()
         }
 
-        btnAddDigits.logEventClickListener(context, AnalyticsButton.UPDATE_NUMBERS) {
+        btnAddDigits.logEventClickListener(context, ButtonActions.UPDATE_NUMBERS) {
             actions?.update()
         }
 
-        btnTip.logEventClickListener(context, AnalyticsButton.TIP) {
+        btnTip.logEventClickListener(context, ButtonActions.TIP) {
             actions?.showTip()
         }
     }

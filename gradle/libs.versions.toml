@@ -24,6 +24,7 @@ androidx-junit = "1.1.5"
 espresso = "3.5.1"
 core-testing = "2.2.0"
 coroutines-test = "1.7.1"
+org-jetbrains-kotlin-jvm = "1.9.10"
 
 
 [libraries]
@@ -63,3 +64,4 @@ devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "devtools-ksp"}
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-android" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-plugin" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }

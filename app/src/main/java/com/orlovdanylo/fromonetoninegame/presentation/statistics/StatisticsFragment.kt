@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import com.orlovdanylo.fromonetoninegame.R
-import com.orlovdanylo.fromonetoninegame.base.BaseFragment
+import com.orlovdanylo.fromonetoninegame.presentation.core.BaseFragment
 
 class StatisticsFragment : BaseFragment<StatisticsViewModel>() {
 

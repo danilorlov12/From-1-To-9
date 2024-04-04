@@ -2,7 +2,6 @@ package com.orlovdanylo.fromonetoninegame
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
 import com.orlovdanylo.fromonetoninegame.presentation.game.GameViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -24,9 +23,8 @@ class UndoRedoUnitTest {
     fun before() {
         viewModel = GameViewModel()
 
-        startModels = GameUtils.game.mapIndexed { index, s ->
-            GameModel(index, s.toInt(), false)
-        }
+        startModels = GameMode.Classic().convertToGameModelsList()
+
         viewModel.initGame(true)
     }
 

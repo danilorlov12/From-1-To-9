@@ -1,4 +1,4 @@
-package com.orlovdanylo.fromonetoninegame.base
+package com.orlovdanylo.fromonetoninegame.presentation.core
 
 import android.os.Bundle
 import android.view.LayoutInflater

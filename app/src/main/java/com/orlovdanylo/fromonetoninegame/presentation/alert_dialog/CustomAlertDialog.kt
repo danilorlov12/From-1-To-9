@@ -9,58 +9,36 @@ import com.orlovdanylo.fromonetoninegame.R
 
 class CustomAlertDialog(
     context: Context,
-    private val title: String?,
-    private val message: String?,
-    private val positiveButtonText: String,
-    private val negativeButtonText: String?,
-    private val onPositiveButtonClick: () -> Unit,
-    private val onNegativeButtonClick: () -> Unit
+    private val title: String? = null,
+    private val message: String? = null,
+    private val positiveButtonText: String? = null,
+    private val negativeButtonText: String? = null,
+    private val onPositiveButtonClick: (() -> Unit)? = null,
+    private val onNegativeButtonClick: (() -> Unit)? = null
 ) : AlertDialog(context, R.style.AlertDialogStyle) {
-
-    constructor(
-        context: Context,
-        title: String?,
-        positiveButtonText: String,
-        onPositiveButtonClick: () -> Unit
-    ) : this(context, title, null, positiveButtonText, null, onPositiveButtonClick, {})
 
     override fun create() {
         super.create()
         setContentView(R.layout.custom_alert_dialog)
         setCancelable(false)
 
-        val tvTitle = findViewById<TextView>(R.id.tvTitle)
-        if (title != null) {
-            tvTitle.text = title
-        } else {
-            tvTitle.visibility = View.GONE
-        }
-
-//        val tvMessage = findViewById<TextView>(R.id.tvMessage)
-//        if (message != null) {
-//            tvMessage.text = message
-//        } else {
-//            tvMessage.visibility = View.GONE
-//        }
-
-        findViewById<AppCompatButton>(R.id.btnOk).apply {
-            text = positiveButtonText
-            setOnClickListener {
-                onPositiveButtonClick.invoke()
-                dismiss()
+        findViewById<TextView>(R.id.tvTitle).apply {
+            title?.let { text = it } ?: run {
+                visibility = View.GONE
             }
         }
 
-//        val negativeButton = findViewById<AppCompatButton>(R.id.btnCancel)
-//        if (negativeButtonText != null) {
-//            negativeButton.text = negativeButtonText
-//        } else {
-//            negativeButton.visibility = View.GONE
-//        }
-//        negativeButton.setOnClickListener {
-//            onNegativeButtonClick.invoke()
-//            dismiss()
-//        }
+        findViewById<AppCompatButton>(R.id.btnOk).apply {
+            positiveButtonText?.let { text = it } ?: run {
+                visibility = View.GONE
+            }
+            onPositiveButtonClick?.let { action ->
+                setOnClickListener {
+                    action.invoke()
+                    dismiss()
+                }
+            }
+        }
         show()
     }
 }

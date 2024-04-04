@@ -1,6 +1,6 @@
-package com.orlovdanylo.fromonetoninegame.analytics
+package com.orlovdanylo.fromonetoninegame
 
-enum class AnalyticsButton {
+enum class ButtonActions {
     NEW_GAME,
     CONTINUE,
     STATISTICS,

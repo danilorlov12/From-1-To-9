@@ -1,6 +1,6 @@
 package com.orlovdanylo.fromonetoninegame.tip
 
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
+import com.orlovdanylo.fromonetoninegame.GameModel
 
 interface GameCase {
     val numbers: List<String>

@@ -1,7 +1,7 @@
 package com.orlovdanylo.fromonetoninegame.presentation.game.undo_redo_operations
 
 import androidx.lifecycle.MutableLiveData
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
+import com.orlovdanylo.fromonetoninegame.GameModel
 import com.orlovdanylo.fromonetoninegame.presentation.game.models.NumberRemoval
 
 class UndoRedoOperation : IUndoRedoOperation {

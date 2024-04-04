@@ -2,7 +2,7 @@ package com.orlovdanylo.fromonetoninegame.data.info_pages
 
 import com.orlovdanylo.fromonetoninegame.R
 import com.orlovdanylo.fromonetoninegame.domain.InfoPagesRepository
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
+import com.orlovdanylo.fromonetoninegame.GameModel
 
 class InfoPagesRepositoryImpl : InfoPagesRepository {
 

@@ -1,4 +1,4 @@
-package com.orlovdanylo.fromonetoninegame.base
+package com.orlovdanylo.fromonetoninegame.presentation.core
 
 import androidx.lifecycle.ViewModel
 

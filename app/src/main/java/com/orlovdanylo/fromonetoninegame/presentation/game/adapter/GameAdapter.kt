@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.orlovdanylo.fromonetoninegame.R
 import com.orlovdanylo.fromonetoninegame.presentation.core.ClickListener
-import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameModel
+import com.orlovdanylo.fromonetoninegame.GameModel
 import com.orlovdanylo.fromonetoninegame.utils.cancelViewAnimation
 import com.orlovdanylo.fromonetoninegame.utils.pulseAnimation
 

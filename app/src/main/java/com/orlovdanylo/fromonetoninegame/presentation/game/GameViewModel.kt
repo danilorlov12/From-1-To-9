@@ -165,8 +165,8 @@ class GameViewModel : BaseViewModel(), IUndoRedoOperation by UndoRedoOperation()
             } else {
                 prepareStoredGameModel()
             }
-            startTime.value = null
         }
+        startTime.value = null
     }
 
     private suspend fun prepareStoredGameModel() {

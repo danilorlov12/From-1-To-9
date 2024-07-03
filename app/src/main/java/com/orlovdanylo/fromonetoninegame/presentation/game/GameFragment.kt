@@ -8,12 +8,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.orlovdanylo.fromonetoninegame.R
-import com.orlovdanylo.fromonetoninegame.presentation.core.BaseFragment
 import com.orlovdanylo.fromonetoninegame.domain.model.TimeModel
 import com.orlovdanylo.fromonetoninegame.presentation.alert_dialog.CustomAlertDialog
-import com.orlovdanylo.fromonetoninegame.presentation.core.ClickListener
+import com.orlovdanylo.fromonetoninegame.presentation.core.BaseFragment
 import com.orlovdanylo.fromonetoninegame.presentation.game.adapter.GameAdapter
-import com.orlovdanylo.fromonetoninegame.GameModel
+import com.orlovdanylo.fromonetoninegame.presentation.game.adapter.GridSpacingItemDecoration
 import com.orlovdanylo.fromonetoninegame.presentation.game.bottom_view.GameBottomMenuActions
 import com.orlovdanylo.fromonetoninegame.presentation.game.bottom_view.GameBottomMenuView
 import kotlinx.coroutines.CoroutineScope
@@ -36,26 +35,22 @@ class GameFragment : BaseFragment<GameViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.rvDigits)
         val tvGameTime = view.findViewById<TextView>(R.id.tvGameTime)
         val tvRemovedNumbers = view.findViewById<TextView>(R.id.tvRemovedNumbers)
 
-        adapter = GameAdapter(object : ClickListener<GameModel> {
-            override fun click(model: GameModel) {
-                viewModel.tap(model.id)
-            }
-        })
+        adapter = GameAdapter { model -> viewModel.tap(model.id) }
 
-        view.findViewById<RecyclerView>(R.id.rvDigits).apply {
+        val recyclerView = view.findViewById<RecyclerView>(R.id.rvDigits).apply {
             layoutManager = GridLayoutManager(context, 9)
             adapter = this@GameFragment.adapter
             itemAnimator = null
+            addItemDecoration(GridSpacingItemDecoration(9, 12, true))
         }
 
-        viewModel.initGame(GameFragmentArgs.fromBundle(requireArguments()).isNewGame)
+        handleNewGameArgument(false) { isNewGame -> viewModel.initGame(isNewGame) }
 
         viewModel.startTime.observe(viewLifecycleOwner) { time: Long? ->
-            if (time != null) startStopwatch(time)
+            time?.let { startStopwatch(it) }
         }
 
         viewModel.gameTime.observe(viewLifecycleOwner) { time ->
@@ -87,9 +82,8 @@ class GameFragment : BaseFragment<GameViewModel>() {
         }
 
         viewModel.pairNumbers.observe(viewLifecycleOwner) { pair ->
-            pair.toList().forEach {
-                adapter?.notifyItemChanged(it)
-            }
+            adapter?.notifyItemChanged(pair.first)
+            adapter?.notifyItemChanged(pair.second)
         }
 
         viewModel.removedNumbers.observe(viewLifecycleOwner) { numbers ->
@@ -182,7 +176,14 @@ class GameFragment : BaseFragment<GameViewModel>() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.initializeGameTime(GameFragmentArgs.fromBundle(requireArguments()).isNewGame)
+        handleNewGameArgument(true) { isNewGame -> viewModel.initializeGameTime(isNewGame) }
+    }
+
+    private fun handleNewGameArgument(clearArguments: Boolean, action: (isNewGame: Boolean) -> Unit) {
+        arguments?.let {
+            action.invoke(it.getBoolean("isNewGame"))
+            if (clearArguments) it.clear()
+        }
     }
 
     private fun startStopwatch(time: Long) {

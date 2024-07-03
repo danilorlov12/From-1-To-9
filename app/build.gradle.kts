@@ -17,7 +17,7 @@ android {
 
         val versionMajor = 1
         val versionMinor = 2
-        val versionPatch = 3
+        val versionPatch = 4
         versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
         versionName = if (versionPatch == 0) {
             "${versionMajor}.${versionMinor}"

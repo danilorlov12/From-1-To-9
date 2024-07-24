@@ -17,6 +17,10 @@
         <action
             android:id="@+id/action_menuFragment_to_statisticsFragment"
             app:destination="@id/statisticsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_aboutGameFragment"
+            app:destination="@+id/aboutGameFragment" />
+
     </fragment>
 
     <fragment
@@ -38,4 +42,10 @@
         android:id="@+id/infoFragment"
         android:name="com.orlovdanylo.fromonetoninegame.presentation.info_game.InfoGameFragment"
         android:label="InfoFragment" />
+
+    <fragment
+        android:id="@+id/aboutGameFragment"
+        android:name="com.orlovdanylo.fromonetoninegame.presentation.about_game.AboutGameFragment"
+        android:label="AboutGameFragment" />
+
 </navigation>

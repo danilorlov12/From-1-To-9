@@ -3,6 +3,7 @@
     <string name="new_game">Новая игра</string>
     <string name="continue_game">Продолжить</string>
     <string name="statistics">Статистика</string>
+    <string name="how_to_play">Как играть</string>
 
     <string name="games_played">Игр сыграно:</string>
     <string name="games_finished">Игр пройдено:</string>
@@ -21,4 +22,12 @@
     <string name="okay">Хорошо</string>
     <string name="back">Назад</string>
     <string name="next">Дальше</string>
+
+    <string name="developer">Разработчик</string>
+    <string name="orlov_danylo">Орлов Данил</string>
+
+    <string name="version">Версия</string>
+
+    <string name="email_subject">Отзыв о \"From 1 To 9\"</string>
+
 </resources>

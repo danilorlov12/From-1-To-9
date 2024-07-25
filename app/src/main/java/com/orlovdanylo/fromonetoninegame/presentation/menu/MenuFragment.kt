@@ -2,15 +2,13 @@ package com.orlovdanylo.fromonetoninegame.presentation.menu
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.activityViewModels
-import com.orlovdanylo.fromonetoninegame.R
 import com.orlovdanylo.fromonetoninegame.ButtonActions
-import com.orlovdanylo.fromonetoninegame.utils.logEventClickListener
+import com.orlovdanylo.fromonetoninegame.R
 import com.orlovdanylo.fromonetoninegame.presentation.core.BaseFragment
-import com.orlovdanylo.fromonetoninegame.utils.getPackageInfoCompat
+import com.orlovdanylo.fromonetoninegame.utils.logEventClickListener
 
 class MenuFragment : BaseFragment<MenuViewModel>() {
 
@@ -38,22 +36,23 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
                 navController.navigate(action)
             }
 
-        view.findViewById<AppCompatImageButton>(R.id.btnInfo)
-            .logEventClickListener(requireActivity(), ButtonActions.INFO) {
-                val action = MenuFragmentDirections.actionMenuFragmentToInfoFragment()
-                navController.navigate(action)
-            }
-
         view.findViewById<AppCompatButton>(R.id.btnStatistics)
             .logEventClickListener(requireActivity(), ButtonActions.STATISTICS) {
                 val action = MenuFragmentDirections.actionMenuFragmentToStatisticsFragment()
                 navController.navigate(action)
             }
 
-        view.findViewById<TextView>(R.id.tvVersion).text =
-            requireActivity().application.packageManager
-                .getPackageInfoCompat(requireActivity().application.packageName, 0)
-                .versionName
+        view.findViewById<AppCompatImageButton>(R.id.btnHowToPlay)
+            .logEventClickListener(requireActivity(), ButtonActions.HOW_TO_PLAY) {
+                val action = MenuFragmentDirections.actionMenuFragmentToInfoFragment()
+                navController.navigate(action)
+            }
+
+        view.findViewById<AppCompatImageButton>(R.id.btnInfo)
+            .logEventClickListener(requireActivity(), ButtonActions.INFO) {
+                val action = MenuFragmentDirections.actionMenuFragmentToAboutGameFragment()
+                navController.navigate(action)
+            }
     }
 
     override fun clear() = Unit

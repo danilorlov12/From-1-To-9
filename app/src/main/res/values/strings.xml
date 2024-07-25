@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name" translatable="false">From 1 To 9</string>
+    <string name="version_app_and_date" translatable="false">1.2.4 (03.07.2024)</string>
 
     <string name="new_game">New game</string>
     <string name="continue_game">Continue</string>
     <string name="statistics">Statistics</string>
+    <string name="how_to_play">How to play</string>
 
     <string name="games_played">Games Played:</string>
     <string name="games_finished">Games Finished:</string>
@@ -22,4 +24,12 @@
     <string name="okay">Okay</string>
     <string name="back">Back</string>
     <string name="next">Next</string>
+
+    <string name="developer">Developer</string>
+    <string name="orlov_danylo">Orlov Danylo</string>
+
+    <string name="version">Version</string>
+
+    <string name="email_subject">Feedback about \"From 1 To 9\"</string>
+
 </resources>

@@ -13,7 +13,7 @@
     <string name="min_pairs_in_finished_game">Minimum Pairs in \nFinished Game:</string>
     <string name="max_pairs_in_finished_game">Maximum Pairs in \nFinished Game:</string>
 
-    <string name="purpose_of_the_game">Purpose of the Game \u2014 remove all digits from the field game. \n\nTo remove the digits they must satisfy the conditions described on the following pages. \n\nIf there are any digits left on the board that do not satisfy the conditions, press the "Add new digits" button.</string>
+    <string name="purpose_of_the_game">Purpose of the Game \u2014 remove all digits from the game field. \n\nTo remove the digits they must satisfy the conditions described on the following pages. \n\nIf there are any digits left on the board that do not satisfy the conditions, press the "Add new digits" button.</string>
     <string name="tap_on_pair">Tap on pair of equal digits or those which add up to ten to remove all the digits from the field.</string>
     <string name="remove_vertically_horizontally">You can remove digits in adjacent cells both vertically or horizontally:</string>
     <string name="remove_in_between">You can remove digits with blank cells in between:</string>
@@ -31,5 +31,14 @@
     <string name="version">Version</string>
 
     <string name="email_subject">Feedback about \"From 1 To 9\"</string>
+    
+    <!-- content descriptions/-->
+    <string name="about_game_button">About the application</string>
+    <string name="undo_button">Revert the last action</string>
+    <string name="redo_button">Restore the last undone action</string>
+    <string name="add_new_digits_button">Add new digits to the game field</string>
+    <string name="hint_button">Show available digits to remove</string>
+    <string name="send_email_button">Send an email to the developer</string>
+    <string name="rate_the_application_button">Rate the application</string>
 
 </resources>

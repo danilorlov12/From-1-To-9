@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:contentDescription="@string/app_name"
         android:padding="48dp"
         app:srcCompat="@drawable/ic_menu_logo"
         app:tint="@color/gold" />
@@ -62,10 +63,11 @@
         style="@style/ButtonMenu"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:layout_gravity="center"
         android:background="@drawable/ic_info"
-        android:backgroundTint="@color/gold" />
+        android:backgroundTint="@color/gold"
+        android:contentDescription="@string/about_game_button" />
 
 </LinearLayout>

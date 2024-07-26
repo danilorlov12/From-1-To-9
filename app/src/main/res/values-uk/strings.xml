@@ -30,4 +30,13 @@
 
     <string name="email_subject">Відгук про \"From 1 To 9\"</string>
 
+    <!-- content descriptions/-->
+    <string name="about_game_button">Про додаток</string>
+    <string name="undo_button">Скасувати останню дію</string>
+    <string name="redo_button">Відновити останню скасовану дію</string>
+    <string name="add_new_digits_button">Додати нові цифри на ігрове поле</string>
+    <string name="hint_button">Показати доступні цифри для видалення</string>
+    <string name="send_email_button">Надіслати електронний лист розробнику</string>
+    <string name="rate_the_application_button">Оцінити додаток</string>
+
 </resources>

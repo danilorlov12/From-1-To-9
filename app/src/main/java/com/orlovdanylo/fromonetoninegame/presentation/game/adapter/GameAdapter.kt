@@ -34,17 +34,17 @@ class GameAdapter(
             EMPTY_TYPE -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_game_model_empty, parent, false)
-                EmptyModelViewHolder(view)
+                GameViewHolder.Empty(view)
             }
             SELECTED_TYPE -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_game_model_selected, parent, false)
-                SelectedModelViewHolder(view)
+                GameViewHolder.SelectedNumber(view)
             }
             else -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_game_model, parent, false)
-                NumberModelViewHolder(view)
+                GameViewHolder.Number(view)
             }
         }
     }
@@ -52,15 +52,12 @@ class GameAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val model = getItem(position)
         when (holder.itemViewType) {
-            NUMBER_TYPE -> {
-                (holder as NumberModelViewHolder).tvNumber.text = model.num.toString()
+            NUMBER_TYPE, SELECTED_TYPE -> {
+                holder.itemView.setOnClickListener {
+                    clickListener.click(model)
+                }
+                (holder as GameViewHolder.Selectable).tvNumber.text = model.num.toString()
             }
-            SELECTED_TYPE -> {
-                (holder as SelectedModelViewHolder).tvNumber.text = model.num.toString()
-            }
-        }
-        holder.itemView.setOnClickListener {
-            clickListener.click(model)
         }
     }
 
@@ -79,15 +76,22 @@ class GameAdapter(
         secondView?.cancelViewAnimation(secondViewObjAnimator)
     }
 
-    inner class NumberModelViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvNumber: TextView = itemView.findViewById(R.id.tvNumber)
-    }
+    abstract class GameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    inner class SelectedModelViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvNumber: TextView = itemView.findViewById(R.id.tvNumber)
-    }
+        class Number(itemView: View) : GameViewHolder(itemView), Selectable {
+            override val tvNumber: TextView = itemView.findViewById(R.id.tvNumber)
+        }
 
-    inner class EmptyModelViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+        class SelectedNumber(itemView: View) : GameViewHolder(itemView), Selectable {
+            override val tvNumber: TextView = itemView.findViewById(R.id.tvNumber)
+        }
+
+        class Empty(itemView: View) : GameViewHolder(itemView)
+
+        interface Selectable {
+            val tvNumber: TextView
+        }
+    }
 
     companion object {
         private const val NUMBER_TYPE = 1

@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.orlovdanylo.fromonetoninegame.presentation.info_game.InfoGameFragment"
+        android:name="com.orlovdanylo.fromonetoninegame.presentation.how_to_play.HowToPlayFragment"
         android:label="InfoFragment" />
 
     <fragment

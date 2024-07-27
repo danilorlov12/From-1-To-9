@@ -1,4 +1,4 @@
-package com.orlovdanylo.fromonetoninegame.presentation.info_game.adapter
+package com.orlovdanylo.fromonetoninegame.presentation.how_to_play.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +11,7 @@ import com.orlovdanylo.fromonetoninegame.R
 import com.orlovdanylo.fromonetoninegame.GameModel
 import com.orlovdanylo.fromonetoninegame.presentation.game.adapter.GameDiffCallback
 
-class InfoGameAdapter : ListAdapter<GameModel, InfoGameAdapter.GameModelViewHolder>(GameDiffCallback) {
+class RuleContentAdapter : ListAdapter<GameModel, RuleContentAdapter.GameModelViewHolder>(GameDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameModelViewHolder {
         val view = LayoutInflater.from(parent.context)

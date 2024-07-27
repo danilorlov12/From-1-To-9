@@ -7,11 +7,17 @@
     <string name="statistics">Statistics</string>
     <string name="how_to_play">How to play</string>
 
-    <string name="games_played">Games Played:</string>
-    <string name="games_finished">Games Finished:</string>
-    <string name="best_time">Best Time:</string>
-    <string name="min_pairs_in_finished_game">Minimum Pairs in \nFinished Game:</string>
-    <string name="max_pairs_in_finished_game">Maximum Pairs in \nFinished Game:</string>
+    <string name="games">Games</string>
+    <string name="time">Time</string>
+
+    <string name="games_played">Games Played</string>
+    <string name="games_finished">Games Finished</string>
+    <string name="win_rate">Win Rate</string>
+    <string name="min_pairs_in_finished_game">Min. Pairs in \nFinished Game</string>
+    <string name="max_pairs_in_finished_game">Max. Pairs in \nFinished Game</string>
+
+    <string name="best_time">Best Time</string>
+    <string name="average_time">Average time</string>
 
     <string name="purpose_of_the_game">Purpose of the Game \u2014 remove all digits from the game field. \n\nTo remove the digits they must satisfy the conditions described on the following pages. \n\nIf there are any digits left on the board that do not satisfy the conditions, press the "Add new digits" button.</string>
     <string name="tap_on_pair">Tap on pair of equal digits or those which add up to ten to remove all the digits from the field.</string>

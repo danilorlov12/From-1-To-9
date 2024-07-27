@@ -1,126 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvStatisticsTitle"
-        style="@style/TextViewTitle"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="@string/statistics"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvGamesPlayedTitle"
-        style="@style/TextViewSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="36dp"
-        android:text="@string/games_played"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvStatisticsTitle" />
+        <TextView
+            android:id="@+id/tvStatisticsTitle"
+            style="@style/TextViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/statistics"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvGamesPlayed"
-        style="@style/TextViewSubtitleBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toBottomOf="@id/tvGamesPlayedTitle"
-        app:layout_constraintStart_toEndOf="@id/tvGamesPlayedTitle"
-        app:layout_constraintTop_toTopOf="@id/tvGamesPlayedTitle"
-        tools:text="12" />
+        <TextView
+            android:id="@+id/tvGames"
+            style="@style/TextViewSubtitleBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:drawablePadding="12dp"
+            android:src="@drawable/ic_game_controller"
+            android:text="@string/games"
+            app:drawableStartCompat="@drawable/ic_game_controller"
+            app:drawableTint="@color/gold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStatisticsTitle" />
 
-    <TextView
-        android:id="@+id/tvGamesFinishedTitle"
-        style="@style/TextViewSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/games_finished"
-        app:layout_constraintStart_toStartOf="@id/tvGamesPlayedTitle"
-        app:layout_constraintTop_toBottomOf="@id/tvGamesPlayedTitle" />
+        <LinearLayout
+            android:id="@+id/containerGames"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rectangle_border_2dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvGames">
 
-    <TextView
-        android:id="@+id/tvGamesFinished"
-        style="@style/TextViewSubtitleBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toBottomOf="@id/tvGamesFinishedTitle"
-        app:layout_constraintStart_toEndOf="@id/tvGamesFinishedTitle"
-        app:layout_constraintTop_toTopOf="@id/tvGamesFinishedTitle"
-        tools:text="1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvBestTimeTitle"
-        style="@style/TextViewSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/best_time"
-        app:layout_constraintStart_toStartOf="@id/tvGamesPlayedTitle"
-        app:layout_constraintTop_toBottomOf="@id/tvGamesFinishedTitle" />
+                <TextView
+                    style="@style/TextViewSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/games_played" />
 
-    <TextView
-        android:id="@+id/tvBestTime"
-        style="@style/TextViewSubtitleBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toBottomOf="@id/tvBestTimeTitle"
-        app:layout_constraintStart_toEndOf="@id/tvBestTimeTitle"
-        app:layout_constraintTop_toTopOf="@id/tvBestTimeTitle"
-        tools:text="12:22:12" />
+                <TextView
+                    android:id="@+id/tvGamesPlayed"
+                    style="@style/TextViewSubtitleBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="12" />
 
-    <TextView
-        android:id="@+id/tvMinPairsTitle"
-        style="@style/TextViewSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/min_pairs_in_finished_game"
-        app:layout_constraintStart_toStartOf="@id/tvGamesPlayedTitle"
-        app:layout_constraintTop_toBottomOf="@id/tvBestTimeTitle" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvMinPairs"
-        style="@style/TextViewSubtitleBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toBottomOf="@id/tvMinPairsTitle"
-        app:layout_constraintStart_toEndOf="@id/tvMinPairsTitle"
-        app:layout_constraintTop_toTopOf="@id/tvMinPairsTitle"
-        tools:text="1222" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gold" />
 
-    <TextView
-        android:id="@+id/tvMaxPairsTitle"
-        style="@style/TextViewSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/max_pairs_in_finished_game"
-        app:layout_constraintStart_toStartOf="@id/tvGamesPlayedTitle"
-        app:layout_constraintTop_toBottomOf="@id/tvMinPairsTitle" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvMaxPairs"
-        style="@style/TextViewSubtitleBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toBottomOf="@id/tvMaxPairsTitle"
-        app:layout_constraintStart_toEndOf="@id/tvMaxPairsTitle"
-        app:layout_constraintTop_toTopOf="@id/tvMaxPairsTitle"
-        tools:text="428" />
+                <TextView
+                    style="@style/TextViewSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/games_finished" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tvGamesFinished"
+                    style="@style/TextViewSubtitleBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="1" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextViewSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/win_rate" />
+
+                <TextView
+                    android:id="@+id/tvWinRate"
+                    style="@style/TextViewSubtitleBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="75%" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextViewSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/min_pairs_in_finished_game" />
+
+                <TextView
+                    android:id="@+id/tvMinPairs"
+                    style="@style/TextViewSubtitleBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    tools:text="1222" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextViewSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/max_pairs_in_finished_game" />
+
+                <TextView
+                    android:id="@+id/tvMaxPairs"
+                    style="@style/TextViewSubtitleBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="428" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTime"
+            style="@style/TextViewSubtitleBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:drawablePadding="12dp"
+            android:text="@string/time"
+            app:drawableStartCompat="@drawable/ic_hourglass"
+            app:drawableTint="@color/gold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerGames" />
+
+        <LinearLayout
+            android:id="@+id/containerTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rectangle_border_2dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTime">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextViewSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/best_time" />
+
+                <TextView
+                    android:id="@+id/tvBestTime"
+                    style="@style/TextViewSubtitleBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="55:12" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                android:background="@color/gold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextViewSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/average_time" />
+
+                <TextView
+                    android:id="@+id/tvAverageTime"
+                    style="@style/TextViewSubtitleBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="3:22:32" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,5 +1,6 @@
 package com.orlovdanylo.fromonetoninegame.domain.model
 
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 class TimeModel(
@@ -9,6 +10,6 @@ class TimeModel(
         val hours = TimeUnit.MILLISECONDS.toHours(time)
         val minutes = TimeUnit.MILLISECONDS.toMinutes(time) % 60
         val seconds = TimeUnit.MILLISECONDS.toSeconds(time) % 60
-        return String.format("%02d:%02d:%02d", hours, minutes, seconds)
+        return String.format(Locale.ENGLISH, "%02d:%02d:%02d", hours, minutes, seconds)
     }
 }

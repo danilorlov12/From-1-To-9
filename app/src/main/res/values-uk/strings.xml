@@ -5,11 +5,17 @@
     <string name="statistics">Статистика</string>
     <string name="how_to_play">Як грати</string>
 
-    <string name="games_played">Ігор зіграно:</string>
-    <string name="games_finished">Ігор пройдено:</string>
-    <string name="best_time">Найкращий час:</string>
-    <string name="min_pairs_in_finished_game">Мінімальна кількість пар у \nпройденій грі:</string>
-    <string name="max_pairs_in_finished_game">Максимальна кількість пар у \nпройденій грі:</string>
+    <string name="games">Ігри</string>
+    <string name="time">Час</string>
+
+    <string name="games_played">Ігор зіграно</string>
+    <string name="games_finished">Ігор пройдено</string>
+    <string name="win_rate">Відсоток перемог</string>
+    <string name="min_pairs_in_finished_game">Мін. кількість пар у \nпройденій грі</string>
+    <string name="max_pairs_in_finished_game">Макс. кількість пар у \nпройденій грі</string>
+
+    <string name="best_time">Найкращий час</string>
+    <string name="average_time">Середній час</string>
 
     <string name="purpose_of_the_game">Мета гри \u2014 позбутися всіх цифр в ігровому полі. \n\nДля того, щоб видалити цифри вони повинні відповідати умовам, які описані на наступних сторінках. \Якщо на ігровому полі залишилися цифри, що не задовольняють умовам, необхідно натиснути кнопку "Додати нові цифри".</string>
     <string name="tap_on_pair">Цифри можна прибрати, якщо вони рівні або в сумі дають число 10</string>

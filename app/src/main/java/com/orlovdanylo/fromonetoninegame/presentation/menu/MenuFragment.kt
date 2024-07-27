@@ -2,8 +2,8 @@ package com.orlovdanylo.fromonetoninegame.presentation.menu
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.activityViewModels
 import com.orlovdanylo.fromonetoninegame.ButtonActions
 import com.orlovdanylo.fromonetoninegame.R
@@ -36,19 +36,19 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
                 navController.navigate(action)
             }
 
-        view.findViewById<AppCompatButton>(R.id.btnStatistics)
+        view.findViewById<AppCompatButton>(R.id.ivStatistics)
             .logEventClickListener(requireActivity(), ButtonActions.STATISTICS) {
                 val action = MenuFragmentDirections.actionMenuFragmentToStatisticsFragment()
                 navController.navigate(action)
             }
 
-        view.findViewById<AppCompatImageButton>(R.id.btnHowToPlay)
+        view.findViewById<AppCompatButton>(R.id.btnHowToPlay)
             .logEventClickListener(requireActivity(), ButtonActions.HOW_TO_PLAY) {
                 val action = MenuFragmentDirections.actionMenuFragmentToInfoFragment()
                 navController.navigate(action)
             }
 
-        view.findViewById<AppCompatImageButton>(R.id.btnInfo)
+        view.findViewById<ImageView>(R.id.ivInfo)
             .logEventClickListener(requireActivity(), ButtonActions.INFO) {
                 val action = MenuFragmentDirections.actionMenuFragmentToAboutGameFragment()
                 navController.navigate(action)

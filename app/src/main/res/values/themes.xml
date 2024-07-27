@@ -30,7 +30,7 @@
     </style>
 
     <style name="TextViewSubtitle" parent="BaseGoldTextColor">
-        <item name="android:textSize">22dp</item>
+        <item name="android:textSize">20dp</item>
     </style>
 
     <style name="TextViewSubtitleBold" parent="TextViewSubtitle">
@@ -43,7 +43,8 @@
     </style>
 
     <style name="TextViewTitle" parent="BaseGoldTextColor">
-        <item name="android:textSize">32dp</item>
+        <item name="android:textSize">28dp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextViewNumberInInfo" parent="BaseGoldTextColor">

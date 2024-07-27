@@ -24,14 +24,17 @@ class StatisticsFragment : BaseFragment<StatisticsViewModel>() {
             view.findViewById<TextView>(R.id.tvGamesFinished).apply {
                 text = statistics.gamesFinished.toString()
             }
-            view.findViewById<TextView>(R.id.tvBestTime).apply {
-                text = statistics.bestTime
+            view.findViewById<TextView>(R.id.tvWinRate).apply {
+                text = statistics.winRate
             }
             view.findViewById<TextView>(R.id.tvMinPairs).apply {
                 text = statistics.minPairs.toString()
             }
             view.findViewById<TextView>(R.id.tvMaxPairs).apply {
                 text = statistics.maxPairs.toString()
+            }
+            view.findViewById<TextView>(R.id.tvBestTime).apply {
+                text = statistics.bestTime
             }
         }
     }

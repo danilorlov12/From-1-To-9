@@ -19,7 +19,7 @@ class GameBottomMenuView : ConstraintLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     init {
-        inflate(context, R.layout.fragment_game_bottom_menu, this)
+        inflate(context, R.layout.view_game_bottom_menu, this)
     }
 
     override fun onAttachedToWindow() {

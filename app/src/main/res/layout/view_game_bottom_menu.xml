@@ -6,47 +6,65 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnUndo"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/button_selector"
         android:contentDescription="@string/undo_button"
         android:padding="12dp"
-        android:scaleType="fitXY"
         android:src="@drawable/ic_undo" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnTip"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/button_selector"
         android:contentDescription="@string/hint_button"
         android:padding="12dp"
-        android:scaleType="fitXY"
         android:src="@drawable/ic_tip" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnAddDigits"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/button_selector"
         android:contentDescription="@string/add_new_digits_button"
         android:padding="12dp"
-        android:scaleType="fitXY"
         android:src="@drawable/ic_add" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnRedo"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/button_selector"
         android:contentDescription="@string/redo_button"
         android:padding="12dp"
-        android:scaleType="fitXY"
         android:src="@drawable/ic_redo" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
 </LinearLayout>

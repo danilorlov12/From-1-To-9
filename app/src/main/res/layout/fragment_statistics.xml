@@ -20,6 +20,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <RadioGroup
+            android:id="@+id/rgGameModes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rectangle_border_2dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tvStatisticsTitle"
+            tools:checkedButton="@id/rbClassic">
+
+            <RadioButton
+                android:id="@+id/rbClassic"
+                style="@style/ToggledRadioButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/classic" />
+
+            <RadioButton
+                android:id="@+id/rbRandom"
+                style="@style/ToggledRadioButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/random" />
+
+        </RadioGroup>
+
         <TextView
             android:id="@+id/tvGames"
             style="@style/TextViewSubtitleBold"
@@ -32,7 +61,7 @@
             app:drawableStartCompat="@drawable/ic_game_controller"
             app:drawableTint="@color/gold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvStatisticsTitle" />
+            app:layout_constraintTop_toBottomOf="@id/rgGameModes" />
 
         <LinearLayout
             android:id="@+id/containerGames"
@@ -237,16 +266,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_marginTop="12dp"
-                android:visibility="gone"
-                android:background="@color/gold" />
+                android:background="@color/gold"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:gravity="center"
-                android:visibility="gone"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <TextView
                     style="@style/TextViewSubtitle"

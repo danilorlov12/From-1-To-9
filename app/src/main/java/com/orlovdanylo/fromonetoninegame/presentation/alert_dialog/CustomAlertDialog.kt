@@ -2,7 +2,10 @@ package com.orlovdanylo.fromonetoninegame.presentation.alert_dialog
 
 import android.app.AlertDialog
 import android.content.Context
+import android.view.ContextThemeWrapper
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.LinearLayout.LayoutParams
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import com.orlovdanylo.fromonetoninegame.R
@@ -10,15 +13,12 @@ import com.orlovdanylo.fromonetoninegame.R
 class CustomAlertDialog(
     context: Context,
     private val title: String? = null,
-    private val message: String? = null,
-    private val positiveButtonText: String? = null,
-    private val negativeButtonText: String? = null,
-    private val onPositiveButtonClick: (() -> Unit)? = null,
-    private val onNegativeButtonClick: (() -> Unit)? = null
+    private val buttons: List<ButtonSetting> = emptyList()
 ) : AlertDialog(context, R.style.AlertDialogStyle) {
 
     override fun create() {
         super.create()
+
         setContentView(R.layout.custom_alert_dialog)
         setCancelable(false)
 
@@ -28,17 +28,21 @@ class CustomAlertDialog(
             }
         }
 
-        findViewById<AppCompatButton>(R.id.btnOk).apply {
-            positiveButtonText?.let { text = it } ?: run {
-                visibility = View.GONE
-            }
-            onPositiveButtonClick?.let { action ->
-                setOnClickListener {
-                    action.invoke()
-                    dismiss()
-                }
+        findViewById<LinearLayout>(R.id.container).let { container ->
+            buttons.forEach {
+                container.addView(adjustButton(it))
             }
         }
         show()
+    }
+
+    private fun adjustButton(setting: ButtonSetting): AppCompatButton {
+        val marginTop = context.resources.getDimensionPixelSize(R.dimen.margin_32)
+        return AppCompatButton(ContextThemeWrapper(context, R.style.ButtonMenu),null, R.style.ButtonMenu).apply {
+            layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT).also {
+                it.setMargins(0, marginTop, 0, 0)
+            }
+            setting.adjustButton(this) { dismiss() }
+        }
     }
 }

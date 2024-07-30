@@ -6,8 +6,11 @@ import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.activityViewModels
 import com.orlovdanylo.fromonetoninegame.ButtonActions
+import com.orlovdanylo.fromonetoninegame.GameMode
 import com.orlovdanylo.fromonetoninegame.R
+import com.orlovdanylo.fromonetoninegame.presentation.alert_dialog.AlertDialogManager
 import com.orlovdanylo.fromonetoninegame.presentation.core.BaseFragment
+import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameSettingsBundle
 import com.orlovdanylo.fromonetoninegame.utils.logEventClickListener
 
 class MenuFragment : BaseFragment<MenuViewModel>() {
@@ -22,8 +25,7 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
 
         view.findViewById<AppCompatButton>(R.id.btnContinue).apply {
             logEventClickListener(requireActivity(), ButtonActions.CONTINUE) {
-                val action = MenuFragmentDirections.actionMenuFragmentToGameFragment(false)
-                navController.navigate(action)
+                navigateToGame(false, GameMode.UNKNOWN)
             }
             viewModel.hasStoredGame.observe(viewLifecycleOwner) {
                 isEnabled = it
@@ -32,8 +34,14 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
 
         view.findViewById<AppCompatButton>(R.id.btnNewGame)
             .logEventClickListener(requireActivity(), ButtonActions.NEW_GAME) {
-                val action = MenuFragmentDirections.actionMenuFragmentToGameFragment(true)
-                navController.navigate(action)
+                AlertDialogManager(requireContext()).showGameModes(
+                    actionClassic = {
+                        navigateToGame(true, GameMode.CLASSIC)
+                    },
+                    actionRandom = {
+                        navigateToGame(true, GameMode.RANDOM)
+                    }
+                )
             }
 
         view.findViewById<AppCompatButton>(R.id.ivStatistics)
@@ -53,6 +61,11 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
                 val action = MenuFragmentDirections.actionMenuFragmentToAboutGameFragment()
                 navController.navigate(action)
             }
+    }
+
+    private fun navigateToGame(isNewGame: Boolean, gameMode: GameMode) {
+        val action = MenuFragmentDirections.actionMenuFragmentToGameFragment(GameSettingsBundle(isNewGame, gameMode))
+        navController.navigate(action)
     }
 
     override fun clear() = Unit

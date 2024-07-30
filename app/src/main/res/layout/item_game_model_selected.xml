@@ -9,7 +9,7 @@
         style="@style/TextViewNumber"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/rectangel_border_filled"
+        android:background="@drawable/rectangle_border_filled"
         android:gravity="center"
         android:textColor="@color/black"
         tools:text="1"

@@ -27,6 +27,10 @@
 
     <string name="congratulations_you_won">Congratulations,\n you won!</string>
 
+    <string name="choose_game_mode">Choose game mode</string>
+    <string name="classic">Classic</string>
+    <string name="random">Random</string>
+
     <string name="okay">Okay</string>
     <string name="back">Back</string>
     <string name="next">Next</string>

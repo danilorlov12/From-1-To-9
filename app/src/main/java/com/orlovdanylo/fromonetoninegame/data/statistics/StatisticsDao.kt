@@ -9,7 +9,10 @@ import androidx.room.Query
 interface StatisticsDao {
 
     @Query("SELECT * FROM statistics")
-    suspend fun getStatistics(): StatisticsModelEntity?
+    suspend fun getStatistics(): List<StatisticsModelEntity>?
+
+    @Query("SELECT * FROM statistics WHERE id = :id")
+    suspend fun getStatisticsById(id: Int): StatisticsModelEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateStatistics(statistics: StatisticsModelEntity)

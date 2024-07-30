@@ -9,12 +9,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.orlovdanylo.fromonetoninegame.R
 import com.orlovdanylo.fromonetoninegame.domain.model.TimeModel
-import com.orlovdanylo.fromonetoninegame.presentation.alert_dialog.CustomAlertDialog
+import com.orlovdanylo.fromonetoninegame.presentation.alert_dialog.AlertDialogManager
 import com.orlovdanylo.fromonetoninegame.presentation.core.BaseFragment
 import com.orlovdanylo.fromonetoninegame.presentation.game.adapter.GameAdapter
 import com.orlovdanylo.fromonetoninegame.presentation.game.adapter.GridSpacingItemDecoration
 import com.orlovdanylo.fromonetoninegame.presentation.game.bottom_view.GameBottomMenuActions
 import com.orlovdanylo.fromonetoninegame.presentation.game.bottom_view.GameBottomMenuView
+import com.orlovdanylo.fromonetoninegame.presentation.game.models.GameSettingsBundle
+import com.orlovdanylo.fromonetoninegame.utils.serializable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancelChildren
@@ -47,7 +49,9 @@ class GameFragment : BaseFragment<GameViewModel>() {
             addItemDecoration(GridSpacingItemDecoration(9, 12, true))
         }
 
-        handleNewGameArgument(false) { isNewGame -> viewModel.initGame(isNewGame) }
+        handleNewGameArgument(false) {
+            settings -> viewModel.initGame(settings.isNewGame, settings.mode)
+        }
 
         viewModel.startTime.observe(viewLifecycleOwner) { time: Long? ->
             time?.let { startStopwatch(it) }
@@ -92,12 +96,8 @@ class GameFragment : BaseFragment<GameViewModel>() {
 
         viewModel.isGameFinished.observe(viewLifecycleOwner) { isGameFinished ->
             if (isGameFinished) {
-                CustomAlertDialog(
-                    context = requireContext(),
-                    title = getString(R.string.congratulations_you_won),
-                    positiveButtonText = getString(R.string.okay),
-                    onPositiveButtonClick = { navController.navigateUp() }
-                ).create()
+                val manager = AlertDialogManager(requireContext())
+                manager.showCongratulations { navController.navigateUp() }
                 stopwatchScope.coroutineContext.cancelChildren()
             }
         }
@@ -176,13 +176,15 @@ class GameFragment : BaseFragment<GameViewModel>() {
 
     override fun onResume() {
         super.onResume()
-        handleNewGameArgument(true) { isNewGame -> viewModel.initializeGameTime(isNewGame) }
+        handleNewGameArgument(true) {
+            settings -> viewModel.initializeGameTime(settings.isNewGame)
+        }
     }
 
-    private fun handleNewGameArgument(clearArguments: Boolean, action: (isNewGame: Boolean) -> Unit) {
-        arguments?.let {
-            action.invoke(it.getBoolean("isNewGame"))
-            if (clearArguments) it.clear()
+    private fun handleNewGameArgument(clearArguments: Boolean, action: (settings: GameSettingsBundle) -> Unit) {
+        arguments?.serializable<GameSettingsBundle>("settings")?.let {
+            action.invoke(it)
+            if (clearArguments) arguments?.clear()
         }
     }
 

@@ -25,6 +25,10 @@
 
     <string name="congratulations_you_won">Вітаємо, ви перемогли!</string>
 
+    <string name="choose_game_mode">Выберите режим игры</string>
+    <string name="classic">Класичний</string>
+    <string name="random">Випадковий</string>
+
     <string name="okay">Добре</string>
     <string name="back">Назад</string>
     <string name="next">Далі</string>

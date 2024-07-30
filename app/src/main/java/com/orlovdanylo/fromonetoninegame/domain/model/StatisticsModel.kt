@@ -1,8 +1,10 @@
 package com.orlovdanylo.fromonetoninegame.domain.model
 
+import com.orlovdanylo.fromonetoninegame.GameMode
 import java.util.Locale
 
 data class StatisticsModel(
+    val mode: GameMode,
     val gamesPlayed: Int,
     val gamesFinished: Int,
     val bestTime: String,

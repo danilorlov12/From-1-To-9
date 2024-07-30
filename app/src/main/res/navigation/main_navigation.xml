@@ -28,8 +28,8 @@
         android:name="com.orlovdanylo.fromonetoninegame.presentation.game.GameFragment"
         android:label="GameFragment">
         <argument
-            android:name="isNewGame"
-            app:argType="boolean"
+            android:name="settings"
+            app:argType="com.orlovdanylo.fromonetoninegame.presentation.game.models.GameSettingsBundle"
             app:nullable="false" />
     </fragment>
 

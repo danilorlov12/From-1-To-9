@@ -11,7 +11,7 @@ class StatisticsViewModel : BaseViewModel() {
 
     private val statisticsRepository = Repositories.statisticsRepository
 
-    val statistics: MutableLiveData<StatisticsModel> = MutableLiveData()
+    val statistics: MutableLiveData<List<StatisticsModel>> = MutableLiveData()
 
     fun loadStatistics() {
         viewModelScope.launch {

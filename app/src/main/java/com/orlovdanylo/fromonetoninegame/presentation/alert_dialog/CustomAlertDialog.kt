@@ -2,12 +2,14 @@ package com.orlovdanylo.fromonetoninegame.presentation.alert_dialog
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.res.ColorStateList
 import android.view.ContextThemeWrapper
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.LinearLayout.LayoutParams
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
 import com.orlovdanylo.fromonetoninegame.R
 
 class CustomAlertDialog(
@@ -42,6 +44,7 @@ class CustomAlertDialog(
             layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT).also {
                 it.setMargins(0, marginTop, 0, 0)
             }
+            backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.gold))
             setting.adjustButton(this) { dismiss() }
         }
     }

@@ -5,7 +5,7 @@
 
     <application
         android:name=".GameApplication"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -17,11 +17,6 @@
 
         <activity
             android:name=".presentation.MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name="com.orlovdanylo.fromonetoninegame.presentation.loader.LoaderActivity"
             android:exported="true"
             android:theme="@style/SplashTheme"
             android:screenOrientation="portrait">

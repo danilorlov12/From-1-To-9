@@ -3,7 +3,7 @@ package com.orlovdanylo.fromonetoninegame
 import android.content.Context
 import androidx.room.Room
 import com.orlovdanylo.fromonetoninegame.data.core.AppDatabase
-import com.orlovdanylo.fromonetoninegame.data.core.StatisticsMigration
+import com.orlovdanylo.fromonetoninegame.data.core.ApplicationMigrations
 import com.orlovdanylo.fromonetoninegame.data.game.GameRepositoryImpl
 import com.orlovdanylo.fromonetoninegame.data.statistics.StatisticRepositoryImpl
 import com.orlovdanylo.fromonetoninegame.domain.GameRepository
@@ -17,7 +17,7 @@ object Repositories {
 
     private val database: AppDatabase by lazy {
         Room.databaseBuilder(applicationContext, AppDatabase::class.java, "main.db")
-            .addMigrations(StatisticsMigration())
+            .addMigrations(*ApplicationMigrations().migrations())
             .build()
     }
 

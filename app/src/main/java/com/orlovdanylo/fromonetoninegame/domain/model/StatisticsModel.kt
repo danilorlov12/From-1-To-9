@@ -14,6 +14,6 @@ data class StatisticsModel(
     val winRate: String
         get() {
             val percentage = gamesFinished.toDouble() / gamesPlayed.toDouble() * 100
-            return "${String.format(Locale.ENGLISH, "%.2f", percentage)} %"
+            return "${String.format(Locale.ENGLISH, "%.2f", percentage.takeIf { !it.isNaN() } ?: 0.00)} %"
         }
 }

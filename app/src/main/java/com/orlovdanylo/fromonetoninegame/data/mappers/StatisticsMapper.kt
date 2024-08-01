@@ -8,18 +8,19 @@ import com.orlovdanylo.fromonetoninegame.domain.model.TimeModel
 class StatisticsMapper {
 
     fun toStatisticsModel(statistics: List<StatisticsModelEntity>?): List<StatisticsModel> {
-        return statistics?.map {
+        return GameMode.playableGameModes().map { mode ->
+            val stat = statistics?.find { it.id == mode.id }
             StatisticsModel(
-                mode = GameMode.gameModeById(it.id),
-                gamesPlayed = it.gamesPlayed ?: 0,
-                gamesFinished = it.gamesFinished ?: 0,
+                mode = mode,
+                gamesPlayed = stat?.gamesPlayed ?: 0,
+                gamesFinished = stat?.gamesFinished ?: 0,
                 bestTime = run {
-                    val timeModel = TimeModel(it.bestTime?.toLongOrNull() ?: 0L)
+                    val timeModel = TimeModel(stat?.bestTime?.toLongOrNull() ?: 0L)
                     timeModel.displayableTime()
                 },
-                minPairs = it.minPairs ?: 0,
-                maxPairs = it.maxPairs ?: 0
+                minPairs = stat?.minPairs ?: 0,
+                maxPairs = stat?.maxPairs ?: 0
             )
-        } ?: emptyList()
+        }
     }
 }

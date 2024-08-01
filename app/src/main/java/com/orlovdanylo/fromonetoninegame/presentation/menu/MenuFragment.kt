@@ -52,7 +52,7 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
 
         view.findViewById<AppCompatButton>(R.id.btnHowToPlay)
             .logEventClickListener(requireActivity(), ButtonActions.HOW_TO_PLAY) {
-                val action = MenuFragmentDirections.actionMenuFragmentToInfoFragment()
+                val action = MenuFragmentDirections.actionMenuFragmentToHowToPlayFragment()
                 navController.navigate(action)
             }
 

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_navigation"
-    app:startDestination="@id/menuFragment">
+    android:id="@+id/main_navigation">
 
     <fragment
         android:id="@+id/menuFragment"
@@ -12,8 +11,8 @@
             android:id="@+id/action_menuFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_infoFragment"
-            app:destination="@id/infoFragment" />
+            android:id="@+id/action_menuFragment_to_howToPlayFragment"
+            app:destination="@id/howToPlayFragment" />
         <action
             android:id="@+id/action_menuFragment_to_statisticsFragment"
             app:destination="@id/statisticsFragment" />
@@ -39,9 +38,9 @@
         android:label="StatisticsFragment" />
 
     <fragment
-        android:id="@+id/infoFragment"
+        android:id="@+id/howToPlayFragment"
         android:name="com.orlovdanylo.fromonetoninegame.presentation.how_to_play.HowToPlayFragment"
-        android:label="InfoFragment" />
+        android:label="HowToPlayFragment" />
 
     <fragment
         android:id="@+id/aboutGameFragment"

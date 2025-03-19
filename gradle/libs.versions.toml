@@ -1,5 +1,5 @@
 [versions]
-android-gradle-plugin = "8.1.0"
+android-gradle-plugin = "8.8.0"
 devtools-ksp = "1.9.10-1.0.13"
 kotlin-android = "1.9.10"
 google-services = "4.3.15"
@@ -12,7 +12,7 @@ constraintlayout = "2.1.4"
 splashscreen = "1.0.1"
 viewmodel = "2.7.0"
 livedata = "2.7.0"
-extensions = "2.2.0"
+lifecycler-extensions = "2.2.0"
 room = "2.6.1"
 navigation = "2.7.7"
 firebase-bom = "32.8.0"
@@ -36,11 +36,10 @@ androidx-splashscreen = { group = "androidx.core", name = "core-splashscreen", v
 
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "viewmodel" }
 androidx-lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata", version.ref = "livedata" }
-androidx-lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "extensions" }
+androidx-lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "lifecycler-extensions" }
 
 navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
 navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
-navigation-safe-args = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigation-safe-args" }
 
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }

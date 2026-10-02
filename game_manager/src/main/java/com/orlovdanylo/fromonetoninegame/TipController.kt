@@ -6,19 +6,18 @@ class TipController(
 
     fun fetchAvailablePair(): List<Pair<Int, Int>> {
         val gameController = GameController(models)
-        val visitedIds = mutableSetOf<Int>()
-        val pairs: MutableList<Pair<Int, Int>> = mutableListOf()
+        val uncrossed = models.filter { !it.isCrossed }
 
-        val uncrossedModels = models.filter { !it.isCrossed }
-        uncrossedModels.forEachIndexed { index, model ->
-            visitedIds.add(model.id)
-            uncrossedModels.subList(index + 1, uncrossedModels.size).filter { it.id !in visitedIds }.find { secondModel ->
-                gameController.determineRemovableNumberIds(model, secondModel)?.let {
-                    pairs.add(Pair(it.first, it.second))
-                }
-                false
-            }
+        return uncrossed.flatMapIndexed { index, model ->
+            val nextInRow = uncrossed.getOrNull(index + 1)
+            val nextInColumn = (model.id + 9 until models.size step 9)
+                .map { models[it] }
+                .firstOrNull { !it.isCrossed }
+
+            listOfNotNull(nextInRow, nextInColumn)
+                .distinctBy { it.id }
+                .sortedBy { it.id }
+                .mapNotNull { gameController.determineRemovableNumberIds(model, it) }
         }
-        return pairs
     }
 }

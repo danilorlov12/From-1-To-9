@@ -73,6 +73,11 @@ class GameViewModel(
         }
     }
 
+    fun resumeGameTime() {
+        if (gameModels.value.isNullOrEmpty() || gameModelsCount.value == 0) return
+        startTime.value = gameTime.value ?: 0L
+    }
+
     fun tap(id: Int) {
         val gameModel = gameModels.value?.find { it.id == id } ?: return
 

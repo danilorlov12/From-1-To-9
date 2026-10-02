@@ -176,8 +176,13 @@ class GameFragment : BaseFragment<GameViewModel>() {
 
     override fun onResume() {
         super.onResume()
-        handleNewGameArgument(true) {
-            settings -> viewModel.initializeGameTime(settings.isNewGame)
+        val hasSettings = arguments?.serializable<GameSettingsBundle>("settings") != null
+        if (hasSettings) {
+            handleNewGameArgument(true) {
+                settings -> viewModel.initializeGameTime(settings.isNewGame)
+            }
+        } else {
+            viewModel.resumeGameTime()
         }
     }
 
@@ -189,6 +194,7 @@ class GameFragment : BaseFragment<GameViewModel>() {
     }
 
     private fun startStopwatch(time: Long) {
+        stopwatchScope.coroutineContext.cancelChildren()
         stopwatchScope.launch {
             var elapsedTime = time
             while (isActive) {

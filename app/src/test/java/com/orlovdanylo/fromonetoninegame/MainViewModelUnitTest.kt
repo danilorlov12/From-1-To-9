@@ -19,11 +19,11 @@ class MainViewModelUnitTest {
 
     @Before
     fun before() {
-        viewModel = GameViewModel()
+        viewModel = GameViewModel(FakeGameRepository(), FakeStatisticsRepository())
 
-        startModels = GameMode.Classic().convertToGameModelsList()
+        startModels = GameModelsProvider(GameMode.CLASSIC).obtainGameModels()
 
-        viewModel.initGame(true)
+        viewModel.initGame(true, GameMode.CLASSIC)
     }
 
     @Test

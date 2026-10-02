@@ -12,13 +12,15 @@ import com.orlovdanylo.fromonetoninegame.presentation.game.undo_redo_operations.
 import com.orlovdanylo.fromonetoninegame.presentation.game.undo_redo_operations.UndoRedoOperation
 import com.orlovdanylo.fromonetoninegame.GameController
 import com.orlovdanylo.fromonetoninegame.GameMode
+import com.orlovdanylo.fromonetoninegame.domain.GameRepository
+import com.orlovdanylo.fromonetoninegame.domain.StatisticsRepository
 import com.orlovdanylo.fromonetoninegame.utils.calculatePosition
 import kotlinx.coroutines.launch
 
-class GameViewModel : BaseViewModel(), IUndoRedoOperation by UndoRedoOperation() {
-
-    private val gameRepository = Repositories.gameRepository
-    private val statisticsRepository = Repositories.statisticsRepository
+class GameViewModel(
+    private val gameRepository: GameRepository = Repositories.gameRepository,
+    private val statisticsRepository: StatisticsRepository = Repositories.statisticsRepository
+) : BaseViewModel(), IUndoRedoOperation by UndoRedoOperation() {
 
     val removedNumbers: MutableLiveData<Int> = MutableLiveData(0)
     val gameModels: MutableLiveData<MutableList<GameModel>> = MutableLiveData()

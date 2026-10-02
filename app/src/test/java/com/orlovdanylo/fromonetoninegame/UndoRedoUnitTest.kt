@@ -1,7 +1,6 @@
 package com.orlovdanylo.fromonetoninegame
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.MutableLiveData
 import com.orlovdanylo.fromonetoninegame.presentation.game.GameViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -21,11 +20,11 @@ class UndoRedoUnitTest {
 
     @Before
     fun before() {
-        viewModel = GameViewModel()
+        viewModel = GameViewModel(FakeGameRepository(), FakeStatisticsRepository())
 
-        startModels = GameMode.Classic().convertToGameModelsList()
+        startModels = GameModelsProvider(GameMode.CLASSIC).obtainGameModels()
 
-        viewModel.initGame(true)
+        viewModel.initGame(true, GameMode.CLASSIC)
     }
 
     @Test
@@ -51,7 +50,7 @@ class UndoRedoUnitTest {
         assertEquals(viewModel.gameModels.value!![9].copy(isCrossed = false),
             lastRemoval.number2)
 
-        viewModel.undo(viewModel.gameModels.value!!, MutableLiveData())
+        viewModel.undo(viewModel.gameModels.value!!, viewModel.removedNumbers)
         assertEquals(false, viewModel.gameModels.value!![0].isCrossed)
         assertEquals(false, viewModel.gameModels.value!![9].isCrossed)
 
@@ -70,7 +69,7 @@ class UndoRedoUnitTest {
         assertEquals(viewModel.gameModels.value!![0], lastCanceled.number1)
         assertEquals(viewModel.gameModels.value!![9], lastCanceled.number2)
 
-        viewModel.redo(viewModel.gameModels.value!!, MutableLiveData())
+        viewModel.redo(viewModel.gameModels.value!!, viewModel.removedNumbers)
 
         assertEquals(true, viewModel.gameModels.value!![0].isCrossed)
         assertEquals(true, viewModel.gameModels.value!![9].isCrossed)
@@ -108,19 +107,19 @@ class UndoRedoUnitTest {
         assertEquals(viewModel.gameModels.value!![26].copy(isCrossed = false),
             lastRemoval.number2)
 
-        viewModel.undo(viewModel.gameModels.value!!, MutableLiveData())
+        viewModel.undo(viewModel.gameModels.value!!, viewModel.removedNumbers)
         assertEquals(false, viewModel.gameModels.value!![17].isCrossed)
         assertEquals(false, viewModel.gameModels.value!![26].isCrossed)
 
-        viewModel.undo(viewModel.gameModels.value!!, MutableLiveData())
+        viewModel.undo(viewModel.gameModels.value!!, viewModel.removedNumbers)
         assertEquals(false, viewModel.gameModels.value!![8].isCrossed)
         assertEquals(false, viewModel.gameModels.value!![9].isCrossed)
 
-        viewModel.redo(viewModel.gameModels.value!!, MutableLiveData())
+        viewModel.redo(viewModel.gameModels.value!!, viewModel.removedNumbers)
         assertEquals(true, viewModel.gameModels.value!![8].isCrossed)
         assertEquals(true, viewModel.gameModels.value!![9].isCrossed)
 
-        viewModel.redo(viewModel.gameModels.value!!, MutableLiveData())
+        viewModel.redo(viewModel.gameModels.value!!, viewModel.removedNumbers)
         assertEquals(true, viewModel.gameModels.value!![17].isCrossed)
         assertEquals(true, viewModel.gameModels.value!![26].isCrossed)
     }
@@ -144,7 +143,7 @@ class UndoRedoUnitTest {
             5 1 6 1 7 1 8 1 #   |   18 19 20 21 22 23 24 25 26
          */
 
-        viewModel.undo(viewModel.gameModels.value!!, MutableLiveData())
+        viewModel.undo(viewModel.gameModels.value!!, viewModel.removedNumbers)
         assertEquals(false, viewModel.gameModels.value!![17].isCrossed)
         assertEquals(false, viewModel.gameModels.value!![26].isCrossed)
 
